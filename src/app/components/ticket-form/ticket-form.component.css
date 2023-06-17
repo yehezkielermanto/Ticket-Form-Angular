@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container{
+    margin:40px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.form-flex{
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    margin:20px 0;
+}
+
+.full-form{
+    width: 100%;
+}
+
+.date{
+    font-size: 18px;
+}
+
+.form-action-flex{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.form-action-flex > button{
+    font-size: 15px;
+    padding:20px;
+}

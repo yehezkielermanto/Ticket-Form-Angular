@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="form-container">
+        <!-- select movie -->
+        <mat-form-field>
+            <mat-label>Select Movie</mat-label>
+            <mat-select [(ngModel)]="selectedMovie">
+                <mat-option *ngFor="let movie of movies" [value]="movie">
+                    {{movie.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- date show -->
+        <div class="form-flex">
+            <div class="full-form">
+                <p>Movie Show Date: </p>
+                <p class="date" *ngIf="selectedMovie">
+                    {{onFormatTime(selectedMovie.time)}}
+                </p>
+            </div>
+            <mat-form-field class="full-form">
+                <mat-label>Choose your time </mat-label>
+                <input [(ngModel)]="movieTime" type="time" matInput>
+            </mat-form-field>
+        </div>
+
+        <!-- number of ticket -->
+        <div class="form-flex">
+            <mat-form-field class="full-form">
+                <mat-label>Number ticket for adults</mat-label>
+                <input type="number"  matInput min="0" [(ngModel)]="ticketAdults" (keypress)="validateNumber($event)">
+            </mat-form-field>
+            <mat-form-field class="full-form">
+                <mat-label>Number ticket for children</mat-label>
+                <input type="number" matInput min="0" [(ngModel)]="ticketChild" (keypress)="validateNumber($event)">
+            </mat-form-field>
+        </div>
+
+        <!-- email -->
+        <mat-form-field class="full-form">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [(ngModel)]="email">
+        </mat-form-field>
+
+        <!-- reservation name -->
+        <p>Reservation Name</p>
+        <div class="form-flex">
+            <mat-form-field class="full-form">
+                <mat-label>First name</mat-label>
+                <input type="text" matInput [(ngModel)]="firstName">
+            </mat-form-field>
+            <mat-form-field class="full-form">
+                <mat-label>Last name</mat-label>
+                <input type="text" matInput [(ngModel)]="lastName">
+            </mat-form-field>
+        </div>
+
+        <!-- action button -->
+        <div class="form-action-flex">
+            <button mat-raised-button (click)="clear()">Clear</button>
+            <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+        </div>
+    </div>
+</div>
