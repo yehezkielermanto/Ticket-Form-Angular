@@ -3,18 +3,22 @@
         <button mat-raised-button>Back</button>
     </a>
 </div>
-<div  *ngIf="tickets.length > 0" class="form-summary">
-    <h2>Movie ticket reservation</h2>
-    <p>Name: {{tickets[0].firstName + " " + tickets[0].lastName}}</p>
-    <p>Movie Name: {{tickets[0].movieName}}</p>
-    <p>Movie Date: {{tickets[0].movieDate}}</p>
-    <p>Movie Time: {{tickets[0].movieTime}}</p>
-    <p>Number ticket adults: {{tickets[0].ticketAdults}}</p>
-    <p>Number ticket children: {{tickets[0].ticketChild}}</p>
-    <p>Email: {{tickets[0].email}}</p>
-    <p class="bold">Total ticket: {{tickets[0].ticketAdults + tickets[0].ticketChild}}</p>
-</div>
-<div *ngIf="tickets.length == 0" class="button-action">
-    <h2>Data Not Found</h2>
-</div>
+<mat-card class="form-summary">
+    <mat-card-content>
+        <div  *ngIf="tickets.length > 0">
+            <h2>Movie ticket reservation</h2>
+            <p>Name: {{tickets[0].firstName + " " + tickets[0].lastName}}</p>
+            <p>Movie Name: {{tickets[0].movieName}}</p>
+            <p>Movie Date: {{tickets[0].movieDate}}</p>
+            <p>Movie Time: {{tickets[0].movieTime}}</p>
+            <p>Number ticket adults: {{tickets[0].ticketAdults}}</p>
+            <p>Number ticket children: {{tickets[0].ticketChild}}</p>
+            <p>Email: {{tickets[0].email}}</p>
+            <p class="bold">Total ticket: {{tickets[0].ticketAdults + tickets[0].ticketChild}}</p>
+        </div>
+        <div *ngIf="tickets.length == 0" class="button-action">
+            <h2>Data Not Found</h2>
+        </div>
+    </mat-card-content>
+</mat-card>
 
