@@ -28,11 +28,11 @@
         <div class="form-flex">
             <mat-form-field class="full-form">
                 <mat-label>Number ticket for adults</mat-label>
-                <input type="number"  matInput min="0" [(ngModel)]="ticketAdults" (keypress)="validateNumber($event)">
+                <input type="number"  matInput min="0" max="10" [(ngModel)]="ticketAdults" (keypress)="validateNumber($event)">
             </mat-form-field>
             <mat-form-field class="full-form">
                 <mat-label>Number ticket for children</mat-label>
-                <input type="number" matInput min="0" [(ngModel)]="ticketChild" (keypress)="validateNumber($event)">
+                <input type="number" matInput min="0" max="10" [(ngModel)]="ticketChild" (keypress)="validateNumber($event)">
             </mat-form-field>
         </div>
 

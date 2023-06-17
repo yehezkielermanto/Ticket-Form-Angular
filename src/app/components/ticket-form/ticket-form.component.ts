@@ -19,11 +19,12 @@ export class TicketFormComponent {
   selectedMovie ?:Movie;
 
   movieTime ?: any;
-  ticketAdults ?: number = 0;
-  ticketChild ?: number = 0;
+  ticketAdults : number = 0;
+  ticketChild : number = 0;
   email?: string;
   firstName?: string;
   lastName?: string;
+  ticketMax: number = 10
 
   // function on select movie --> get all data from movie
   onSelect(movie: Movie): void{
@@ -49,12 +50,16 @@ export class TicketFormComponent {
   submit(): void{
     // check if not value
     if(!this.selectedMovie?.name || this.movieTime == '' || (this.ticketAdults == 0 && this.ticketChild == 0) || this.email == '' || this.firstName == '' || this.lastName == ''){
-        this.openSnackBar("Please fill all value", "Dismiss");
-    }else{
-      this.ticketService.addTicket(
-        {movieName: this.selectedMovie?.name, movieDate: this.onFormatTime(this.selectedMovie?.time), movieTime: this.movieTime, ticketAdults: this.ticketAdults, ticketChild: this.ticketChild, email: this.email, firstName: this.firstName, lastName: this.lastName }
-      );
-      this.router.navigate(['/summary'])
+        this.openSnackBar("Please fill all value", "Close");
+      }else{
+        if(this.ticketAdults > this.ticketMax || this.ticketChild > this.ticketMax){
+        this.openSnackBar("Maximum ticket is 10", "Close");
+        }else{
+          this.ticketService.addTicket(
+            {movieName: this.selectedMovie?.name, movieDate: this.onFormatTime(this.selectedMovie?.time), movieTime: this.movieTime, ticketAdults: this.ticketAdults, ticketChild: this.ticketChild, email: this.email, firstName: this.firstName, lastName: this.lastName }
+          );
+          this.router.navigate(['/summary'])
+        }
     }
   }
 
