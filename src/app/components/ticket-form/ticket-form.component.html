@@ -12,9 +12,9 @@
 
         <!-- date show -->
         <div class="form-flex">
-            <div class="full-form">
+            <div class="full-form" *ngIf="selectedMovie">
                 <p>Movie Show Date: </p>
-                <p class="date" *ngIf="selectedMovie">
+                <p class="date">
                     {{onFormatTime(selectedMovie.time)}}
                 </p>
             </div>
